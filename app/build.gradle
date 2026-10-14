@@ -1,0 +1,46 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+// Signing and version come from build.sh (keys/ stays out of the source)
+def keystorePath = System.getenv('THOR_KEYSTORE')
+
+android {
+    namespace 'com.mleo2003.showdownthor'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId 'com.mleo2003.showdownthor'
+        minSdk 26
+        targetSdk 34
+        versionCode((System.getenv('THOR_VERSION_CODE') ?: '1').toInteger())
+        versionName System.getenv('THOR_VERSION_NAME') ?: '0.1.0'
+    }
+
+    signingConfigs {
+        release {
+            if (keystorePath != null) {
+                storeFile file(keystorePath)
+                storePassword System.getenv('THOR_KEYSTORE_PASSWORD')
+                keyAlias 'showdown-thor'
+                keyPassword System.getenv('THOR_KEYSTORE_PASSWORD')
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+}

@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- WebView lays this out at the screen's own width (about 540 CSS px across the 1240 px bottom screen): big touch targets -->
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<title>Showdown Thor panel</title>
+<link rel="stylesheet" href="panel.css">
+</head>
+<body>
+<header id="bar"><span id="title">Showdown Thor</span><span id="tools"></span><span id="battery"></span><span id="clock"></span></header>
+<main id="view"><div class="center muted">Loading Pokémon Showdown…</div></main>
+<div id="kbd"></div>
+<!-- Coach: Smogon damage calc + pkmn random-battle sets (tools/update-coach-data.sh) -->
+<script src="coach/calc-data.js"></script>
+<script src="coach/calc.js"></script>
+<script src="coach/randbats.js"></script>
+<script src="coach/coach.js"></script>
+<script src="panel.js"></script>
+</body>
+</html>

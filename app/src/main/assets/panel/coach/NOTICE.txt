@@ -1,0 +1,3 @@
+calc.js and calc-data.js are the browser bundles of @smogon/calc (https://github.com/smogon/damage-calc),
+MIT License, Copyright (c) Smogon and contributors. randbats.js is pkmn's random-battle set data
+(https://github.com/pkmn/randbats), generated from Pokémon Showdown's data (MIT).

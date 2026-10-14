@@ -1,0 +1,13 @@
+# signing (never commit)
+keys/
+*.jks
+*.keystore
+# build output and local machine settings
+out/
+build/
+app/build/
+.gradle/
+.kotlin/
+local.properties
+*.log
+.DS_Store
